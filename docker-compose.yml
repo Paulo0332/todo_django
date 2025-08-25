@@ -1,8 +1,6 @@
-version: "3.9"
 services:
   web:
     build: .
-    container_name: django_app
     command:  python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
@@ -15,7 +13,7 @@ services:
     image: postgres:15
     environment:
       POSTGRES_DB: todo_db
-      POSTGERS_USER: todo_user
+      POSTGRES_USER: todo_user
       POSTGRES_PASSWORD: todo_pass
     ports:
       - "5432:5432"
