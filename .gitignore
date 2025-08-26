@@ -3,4 +3,4 @@ __pycache__/
 .git/
 node_modules/
 *.pyc
-
+db.sqlite3
