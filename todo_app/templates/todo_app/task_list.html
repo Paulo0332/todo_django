@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Task List</h1>
+
+    <a href="{% url "task-create" %}">Create new task</a>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                Name: {{task.name}}
+                {% if task.flag %} 
+                ✅ Completed 
+                {% else %} 
+                ❌ Pending 
+                {% endif %}
+                <br>
+                Description: {{task.description}}
+                <br>
+                Created at: {{task.created_at}}
+                <br>
+                Updated at: {{task.updated_at}}
+                <br>
+                <a href="{% url "task-update" task.pk %}">Update task</a>
+                <a href="{% url "task-delete" task.pk %}">Delete task</a>   
+            </li>
+            <br>
+        {% empty %}
+            <li>No tasks yet!</li>
+        {% endfor %}
+    </ul>
+        
+</body>
+</html>

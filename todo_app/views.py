@@ -6,22 +6,22 @@ from .models import Task
 
 class TaskListView(ListView):
     model = Task
-    template_name = "tasks/task_list.html"
+    template_name = "todo_app/task_list.html"
     context_object_name = "tasks"
 
 class TaskUpdateView(UpdateView):
     model = Task
-    template_name = "tasks/task_form.html"
+    template_name = "todo_app/task_form.html"
     fields = ["name","flag","description"]
     success_url = reverse_lazy('task-list')
 
 class TaskCreateView(CreateView):
     model = Task
-    template_name = "tasks/task_form.html"
+    template_name = "todo_app/task_form.html"
     fields = ["name", "flag","description"]
     success_url = reverse_lazy('task-list')
 
 class TaskDeleteView(DeleteView):
     model = Task
-    template_name = "task/task_confirm_delete.html"
+    template_name = "todo_app/task_confirm_delete.html"
     success_url = reverse_lazy('task-list')
