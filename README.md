@@ -32,14 +32,17 @@ git clone <your-repo-url>
 cd <project-folder>
 ```
 ### 2. Build and start containers
+```bash
 docker compose up --build -d
-
+```
 ### 3. Apply database migrations
+```bash
 docker compose exec web python manage.py migrate
-
+```
 ### 4. Create a superuser (for Django admin)
+```bash
 docker compose exec web python manage.py createsuperuser
-
+```
 ### 5. Access the app
 App: http://localhost:8000
 Admin: http://localhost:8000/admin
