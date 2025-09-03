@@ -30,7 +30,7 @@ This project was designed with **production practices** in mind, including conta
 ```bash
 git clone <your-repo-url>
 cd <project-folder>
-
+```
 ### 2. Build and start containers
 docker compose up --build -d
 
