@@ -9,6 +9,17 @@
     <h1>Task List</h1>
 
     <a href="{% url "task-create" %}">Create new task</a>
+    
+    <form method="get">
+        <label for="sort">Sort by:</label>
+        <select name="sort" id="sort" onchange="this.form.submit()">
+            <option value="name" {% if request.GET.sort == "name" %}selected{% endif %}>Name</option>
+            <option value="flag" {% if request.GET.sort == "flag" %}selected{% endif %}>Status</option>
+            <option value="created_at" {% if request.GET.sort == "created_at" or not request.GET.sort %}selected{% endif %}>Creation time</option>
+            <option value="updated_at" {% if request.GET.sort == "updated_at" %}selected{% endif %}>Updated time</option>
+        </select>
+    </form>
+
     <ul>
         {% for task in tasks %}
             <li>
