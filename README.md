@@ -44,5 +44,5 @@ docker compose exec web python manage.py migrate
 docker compose exec web python manage.py createsuperuser
 ```
 ### 5. Access the app
-App: http://localhost:8000
+App: http://localhost:8000/tasks
 Admin: http://localhost:8000/admin
