@@ -28,7 +28,7 @@ This project was designed with **production practices** in mind, including conta
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Paulo0332/todo_django/edit/master/README.md
+git clone https://github.com/Paulo0332/todo_django.git
 cd <project-folder>
 ```
 ### 2. Build and start containers
