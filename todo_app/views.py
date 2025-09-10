@@ -23,7 +23,6 @@ class TaskListView(ListView):
             return queryset.order_by(valid_sorts[solid_param])
         return queryset.order_by('created_at')
 
-
 class TaskUpdateView(UpdateView):
     model = Task
     template_name = "todo_app/task_form.html"
