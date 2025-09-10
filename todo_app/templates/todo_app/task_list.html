@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task List</title>
-</head>
-<body>
-    <h1>Task List</h1>
+{% extends "todo_app/base.html" %}
 
-    <a href="{% url "task-create" %}">Create new task</a>
+{% block title %}Task List{% endblock title %}
+
+{% block content %}
+    <h1>Task List</h1>
+    
+    <form method="get">
+        <label for="sort">Sort by:</label>
+        <select name="sort" id="sort" onchange="this.form.submit()">
+            <option value="name" {% if request.GET.sort == "name" %}selected{% endif %}>Name</option>
+            <option value="flag" {% if request.GET.sort == "flag" %}selected{% endif %}>Status</option>
+            <option value="created_at" {% if request.GET.sort == "created_at" or not request.GET.sort %}selected{% endif %}>Creation time</option>
+            <option value="updated_at" {% if request.GET.sort == "updated_at" %}selected{% endif %}>Updated time</option>
+        </select>
+    </form>
+
     <ul>
         {% for task in tasks %}
             <li>
@@ -33,6 +39,6 @@
             <li>No tasks yet!</li>
         {% endfor %}
     </ul>
-        
-</body>
-</html>
+
+
+{% endblock content %}
