@@ -15,7 +15,7 @@ class TaskListView(ListView):
         valid_sorts = {
             'name':'name',
             'created_at':'created_at',
-            'updated_at':'updated_at',
+            'updated_at':'-updated_at',
             'flag':'flag'
         }
 
