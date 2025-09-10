@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Form</title>
-</head>
-<body>
+{% extends "todo_app/base.html" %}
+
+{% block title %}Task Form{% endblock title %}
+
+{% block content %}
     <h1>{% if object %} Edit task {% else %} New task {% endif %}</h1>
 
      <form method="post">
@@ -15,5 +12,4 @@
      </form>
 
      <a href="{% url "task-list" %}">Back to the list</a>
-</body>
-</html>
+{% endblock content %}
