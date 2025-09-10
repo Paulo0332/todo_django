@@ -9,6 +9,21 @@ class TaskListView(ListView):
     template_name = "todo_app/task_list.html"
     context_object_name = "tasks"
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        solid_param = self.request.GET.get('sort')
+        valid_sorts = {
+            'name':'name',
+            'created_at':'created_at',
+            'updated_at':'-updated_at',
+            'flag':'flag'
+        }
+
+        if solid_param in valid_sorts:
+            return queryset.order_by(valid_sorts[solid_param])
+        return queryset.order_by('created_at')
+
+
 class TaskUpdateView(UpdateView):
     model = Task
     template_name = "todo_app/task_form.html"
